@@ -1,3 +1,7 @@
+discord:
+  token: ${DISCORD_TOKEN:Obtain a valid bot token at https://discord.com/developers/applications}
+  development-guild-id: 0
+
 spring:
   jpa:
     hibernate:

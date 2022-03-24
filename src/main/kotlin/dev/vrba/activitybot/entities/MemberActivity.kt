@@ -1,5 +1,6 @@
 package dev.vrba.activitybot.entities
 
+import org.hibernate.Hibernate
 import java.time.LocalDate
 import java.util.*
 import javax.persistence.Column
@@ -15,7 +16,7 @@ import javax.persistence.Table
         Index(name = "IX_member_guild_date", columnList = "guild_id,member_id,date", unique = true)
     ]
 )
-class MemberActivity(
+data class MemberActivity(
     @Id
     val id: UUID = UUID.randomUUID(),
 
@@ -30,4 +31,15 @@ class MemberActivity(
 
     @Column(nullable = false)
     val date: LocalDate
-)
+) {
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other == null || Hibernate.getClass(this) != Hibernate.getClass(other)) return false
+
+        return id == (other as MemberActivity).id
+    }
+
+    override fun hashCode(): Int = javaClass.hashCode()
+
+    override fun toString(): String = this::class.simpleName + "(id = $id)"
+}

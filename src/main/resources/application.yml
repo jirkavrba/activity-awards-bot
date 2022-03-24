@@ -1,0 +1,9 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  datasource:
+    username: ${DATABASE_USERNAME:activity}
+    password: ${DATABASE_PASSWORD:activity}
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/activity}

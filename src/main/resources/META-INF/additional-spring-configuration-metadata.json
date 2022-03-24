@@ -7,6 +7,10 @@
     {
       "name": "discord.development-guild-id",
       "type": "java.lang.Long"
+    },
+    {
+      "name": "discord.guilds",
+      "type": "java.util.List<dev.vrba.activitybot.configuration.GuildConfiguration>"
     }
   ]
 }

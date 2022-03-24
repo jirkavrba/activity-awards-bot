@@ -1,7 +1,3 @@
-discord:
-  token: ${DISCORD_TOKEN:Obtain a valid bot token at https://discord.com/developers/applications}
-  development-guild-id: 0
-
 spring:
   jpa:
     hibernate:
@@ -12,3 +8,21 @@ spring:
     username: ${DATABASE_USERNAME:activity}
     password: ${DATABASE_PASSWORD:activity}
     url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/activity}
+
+discord:
+  token: ${DISCORD_TOKEN:Obtain a valid bot token at https://discord.com/developers/applications}
+  development-guild-id: 0
+  guilds:
+    # Dev server
+    - id: 932728712355512331
+      roles:
+        - id: 956648372356403240
+          order: 1
+          percentage: 5
+        - id: 956648372356403240
+          order: 2
+          percentage: 5
+        - id: 956648345949048832
+          order: 3
+          percentage: 5
+

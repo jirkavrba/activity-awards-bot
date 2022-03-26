@@ -16,13 +16,13 @@ discord:
     # Dev server
     - id: 932728712355512331
       roles:
-        - id: 956648372356403240
+        - id: 938890659383885834
           order: 1
           percentage: 5
-        - id: 956648372356403240
+        - id: 954459322950238289
           order: 2
           percentage: 5
-        - id: 956648345949048832
+        - id: 954674010204016641
           order: 3
           percentage: 5
 

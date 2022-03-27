@@ -2,10 +2,14 @@ package dev.vrba.activityawardsbot.discord.tasks
 
 import dev.vrba.activityawardsbot.configuration.DiscordBotConfiguration
 import dev.vrba.activityawardsbot.configuration.GuildConfiguration
+import dev.vrba.activityawardsbot.configuration.RoleConfiguration
 import dev.vrba.activityawardsbot.services.MemberActivityService
+import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.JDA
+import net.dv8tion.jda.api.entities.MessageEmbed
 import org.springframework.boot.CommandLineRunner
 import org.springframework.stereotype.Component
+import java.time.Instant
 import kotlin.math.max
 
 @Component
@@ -40,7 +44,7 @@ class AssignActivityRolesTask(
             }
 
         // Remove awarded roles from all previously awarded members
-        configuration.roles.forEach {
+        val awarded = configuration.roles.map {
             val role = guild.roles.first { role -> role.idLong == it.id }
 
             val new = roles[it.id] ?: return
@@ -57,6 +61,33 @@ class AssignActivityRolesTask(
                    guild.addRoleToMember(member, role).queue()
                 }
             }
+
+            return@map it to new
         }
+
+        val embed = buildAnnouncementEmbed(awarded)
+        val channel = guild.getTextChannelById(configuration.announcementChannelId)
+            ?: throw IllegalStateException("Cannot find the configured announcements channel")
+
+        return channel.sendMessageEmbeds(embed).queue()
+    }
+
+    private fun buildAnnouncementEmbed(awarded: List<Pair<RoleConfiguration, List<Long>>>): MessageEmbed {
+        val description = awarded
+            .sortedBy { it.first.order }
+            .fold("") {
+                builder, (role, members) -> builder +
+                    "**${role.order}.** <@&${role.id}>\n" +
+                    members.joinToString("\n") { "<@${it}>" } +
+                    "\n\n"
+            }
+
+        // TODO: Add localization?
+        return EmbedBuilder()
+            .setColor(0xFEE75C)
+            .setTitle("Awarded roles update")
+            .setDescription(description)
+            .setTimestamp(Instant.now())
+            .build()
     }
 }

@@ -15,6 +15,7 @@ discord:
   guilds:
     # Dev server
     - id: 932728712355512331
+      announcement-channel-id: 957562821728690237
       roles:
         - id: 938890659383885834
           order: 1

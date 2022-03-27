@@ -10,7 +10,7 @@
     },
     {
       "name": "discord.guilds",
-      "type": "java.util.List<dev.vrba.activitybot.configuration.GuildConfiguration>"
+      "type": "java.util.List<dev.vrba.activityawardsbot.configuration.GuildConfiguration>"
     }
   ]
 }

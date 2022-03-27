@@ -1,4 +1,4 @@
-package dev.vrba.activitybot.discord.listeners
+package dev.vrba.activityawardsbot.discord.listeners
 
 import net.dv8tion.jda.api.entities.ChannelType
 import net.dv8tion.jda.api.entities.ThreadChannel

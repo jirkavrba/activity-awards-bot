@@ -1,4 +1,4 @@
-package dev.vrba.activitybot
+package dev.vrba.activityawardsbot
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest

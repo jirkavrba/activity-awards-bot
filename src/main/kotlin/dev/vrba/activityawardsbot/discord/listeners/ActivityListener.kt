@@ -1,7 +1,7 @@
-package dev.vrba.activitybot.discord.listeners
+package dev.vrba.activityawardsbot.discord.listeners
 
-import dev.vrba.activitybot.configuration.DiscordBotConfiguration
-import dev.vrba.activitybot.services.MemberActivityService
+import dev.vrba.activityawardsbot.configuration.DiscordBotConfiguration
+import dev.vrba.activityawardsbot.services.MemberActivityService
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
 import org.springframework.stereotype.Component

@@ -1,4 +1,4 @@
-package dev.vrba.activitybot.configuration
+package dev.vrba.activityawardsbot.configuration
 
 class GuildConfiguration(
     val id: Long,

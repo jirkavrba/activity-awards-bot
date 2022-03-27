@@ -1,6 +1,6 @@
-package dev.vrba.activitybot.discord
+package dev.vrba.activityawardsbot.discord
 
-import dev.vrba.activitybot.configuration.DiscordBotConfiguration
+import dev.vrba.activityawardsbot.configuration.DiscordBotConfiguration
 import net.dv8tion.jda.api.JDABuilder
 import net.dv8tion.jda.api.entities.Activity
 import net.dv8tion.jda.api.hooks.EventListener

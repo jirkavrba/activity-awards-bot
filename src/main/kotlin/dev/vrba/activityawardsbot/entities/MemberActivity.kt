@@ -1,4 +1,4 @@
-package dev.vrba.activitybot.entities
+package dev.vrba.activityawardsbot.entities
 
 import org.hibernate.Hibernate
 import java.time.LocalDate

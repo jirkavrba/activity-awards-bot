@@ -1,4 +1,4 @@
-package dev.vrba.activitybot.dtos
+package dev.vrba.activityawardsbot.dtos
 
 data class MemberActivitySummary(
     val member: Long,

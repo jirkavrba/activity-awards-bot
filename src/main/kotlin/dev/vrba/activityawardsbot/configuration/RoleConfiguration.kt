@@ -1,4 +1,4 @@
-package dev.vrba.activitybot.configuration
+package dev.vrba.activityawardsbot.configuration
 
 class RoleConfiguration(
     val id: Long,

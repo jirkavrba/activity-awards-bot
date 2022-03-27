@@ -1,10 +1,9 @@
-package dev.vrba.activitybot.services
+package dev.vrba.activityawardsbot.services
 
-import dev.vrba.activitybot.entities.MemberActivity
-import dev.vrba.activitybot.repositories.MemberActivityRepository
+import dev.vrba.activityawardsbot.entities.MemberActivity
+import dev.vrba.activityawardsbot.repositories.MemberActivityRepository
 import org.springframework.data.domain.Sort
 import org.springframework.stereotype.Service
-import java.time.Duration
 import java.time.LocalDate
 
 @Service

@@ -1,8 +1,8 @@
-package dev.vrba.activitybot.discord.tasks
+package dev.vrba.activityawardsbot.discord.tasks
 
-import dev.vrba.activitybot.configuration.DiscordBotConfiguration
-import dev.vrba.activitybot.configuration.GuildConfiguration
-import dev.vrba.activitybot.services.MemberActivityService
+import dev.vrba.activityawardsbot.configuration.DiscordBotConfiguration
+import dev.vrba.activityawardsbot.configuration.GuildConfiguration
+import dev.vrba.activityawardsbot.services.MemberActivityService
 import net.dv8tion.jda.api.JDA
 import org.springframework.boot.CommandLineRunner
 import org.springframework.stereotype.Component
@@ -29,7 +29,8 @@ class AssignActivityRolesTask(
         val members = guild.members
 
         // Mapped role id -> member ids
-        val (_, roles) = configuration.roles.sortedBy { it.order }
+        val (_, roles) = configuration.roles
+            .sortedBy { it.order }
             .fold(Pair(0, mapOf<Long, List<Long>>())) { (start, mappedRoles), role ->
                 val percent = max(members.size / 100, 1)
                 val matching = active.drop(percent * start).take(role.percentage * percent)

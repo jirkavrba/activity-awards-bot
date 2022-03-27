@@ -26,7 +26,7 @@ class AssignActivityRolesTask(
     private fun assignAwardedRoles(configuration: GuildConfiguration) {
         val guild = client.getGuildById(configuration.id) ?: return
         val active = service.getMostActiveMembers(guild.idLong)
-        val members = guild.members
+        val members = guild.loadMembers().get()
 
         // Mapped role id -> member ids
         val (_, roles) = configuration.roles

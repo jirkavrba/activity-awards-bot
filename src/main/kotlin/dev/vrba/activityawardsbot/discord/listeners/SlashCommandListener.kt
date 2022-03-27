@@ -56,6 +56,9 @@ class SlashCommandListener(
             handler.execute(event)
         }
         catch (exception: Exception) {
+            logger.error(exception.message)
+            logger.error(exception.stackTraceToString())
+
             val embed = exceptionEmbed()
 
             if (event.isAcknowledged) {

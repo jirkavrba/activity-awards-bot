@@ -11,10 +11,7 @@ import org.springframework.context.annotation.Bean
 import org.springframework.stereotype.Service
 
 @Service
-class DiscordBotService(
-    private val configuration: DiscordBotConfiguration,
-    private val listeners: List<EventListener>
-) : CommandLineRunner {
+class DiscordBotService(configuration: DiscordBotConfiguration, listeners: List<EventListener>) : CommandLineRunner {
 
     @get:Bean
     val client = JDABuilder.createDefault(configuration.token)

@@ -11,4 +11,6 @@ interface AwardRoleRepository : CrudRepository<AwardRole, UUID> {
 
     fun findAllByGuildId(guildId: Long, sort: Sort): List<AwardRole>
 
+    fun countByGuildId(guildId: Long): Long
+
 }

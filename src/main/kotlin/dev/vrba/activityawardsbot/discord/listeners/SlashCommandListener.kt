@@ -60,7 +60,7 @@ class SlashCommandListener(
             val embed = exceptionEmbed()
 
             if (event.isAcknowledged) {
-                return event.interaction.replyEmbeds(embed).queue()
+                return event.interaction.hook.editOriginalEmbeds(embed).queue()
             }
 
             event.replyEmbeds(embed).queue()

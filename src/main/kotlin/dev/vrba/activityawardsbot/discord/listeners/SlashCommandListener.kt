@@ -3,7 +3,6 @@ package dev.vrba.activityawardsbot.discord.listeners
 import dev.vrba.activityawardsbot.configuration.DiscordBotConfiguration
 import dev.vrba.activityawardsbot.discord.commands.SlashCommand
 import net.dv8tion.jda.api.EmbedBuilder
-import net.dv8tion.jda.api.JDA
 import net.dv8tion.jda.api.Permission
 import net.dv8tion.jda.api.entities.MessageEmbed
 import net.dv8tion.jda.api.events.ReadyEvent
@@ -19,7 +18,6 @@ class SlashCommandListener(
     private val commands: List<SlashCommand>,
     private val environment: Environment,
     private val configuration: DiscordBotConfiguration,
-    private val client: JDA
 ) : ListenerAdapter() {
 
     private val logger = LoggerFactory.getLogger(this::class.qualifiedName)
@@ -29,7 +27,7 @@ class SlashCommandListener(
 
         if (environment.acceptsProfiles(Profiles.of("development"))) {
             val id = configuration.developmentGuildId
-            val guild = client.getGuildById(id)
+            val guild = event.jda.getGuildById(id)
                 ?: throw IllegalStateException("Cannot find the configured development guild [$id]")
 
             return guild.updateCommands()
@@ -37,7 +35,7 @@ class SlashCommandListener(
                 .queue()
         }
 
-        client.updateCommands()
+        event.jda.updateCommands()
             .addCommands(definitions)
             .queue()
     }

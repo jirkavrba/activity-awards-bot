@@ -7,10 +7,9 @@ import org.springframework.boot.CommandLineRunner
 import org.springframework.stereotype.Service
 
 @Service
-class DiscordBotService(private val client: JDA, private val listeners: List<EventListener>) : CommandLineRunner {
+class DiscordBotService(private val client: JDA) : CommandLineRunner {
 
     override fun run(vararg args: String) {
-        client.addEventListener(*listeners.toTypedArray())
         client.presence.activity = Activity.watching("your activity")
     }
 

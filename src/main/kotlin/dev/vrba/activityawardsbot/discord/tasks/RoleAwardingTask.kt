@@ -26,8 +26,7 @@ class RoleAwardingTask(
 
     private val logger = LoggerFactory.getLogger(this::class.qualifiedName)
 
-    // TODO: Add cron expression
-    @Scheduled(initialDelay = 1000, fixedRate = 120_000_000)
+    @Scheduled(cron = "0 0 0 * * *")
     fun updateAwardRoles() {
         guildRepository.findAll().forEach {
             try {

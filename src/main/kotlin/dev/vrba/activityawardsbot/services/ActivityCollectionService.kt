@@ -31,7 +31,9 @@ class ActivityCollectionService(
         val member = event.author.idLong
         val date = LocalDate.now()
 
-        val configuration = guildsRepository.findByIdOrNull(guild) ?: return
+        if (!guildsRepository.existsById(guild)) {
+            return
+        }
 
         // If activity for given member/guild/date does not exist, create a new one
         val activity = activityRepository.findByGuildAndMemberAndDate(guild, member, date)

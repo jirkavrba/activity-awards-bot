@@ -7,6 +7,5 @@ import org.springframework.boot.context.properties.ConstructorBinding
 @ConfigurationProperties(prefix = "discord")
 class DiscordBotConfiguration(
     val token: String,
-    val developmentGuildId: Long,
-    val guilds: List<GuildConfiguration>
+    val developmentGuildId: Long
 )

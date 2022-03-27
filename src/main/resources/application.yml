@@ -12,18 +12,3 @@ spring:
 discord:
   token: ${DISCORD_TOKEN:Obtain a valid bot token at https://discord.com/developers/applications}
   development-guild-id: 0
-  guilds:
-    # Dev server
-    - id: 932728712355512331
-      announcement-channel-id: 957562821728690237
-      roles:
-        - id: 938890659383885834
-          order: 1
-          percentage: 5
-        - id: 954459322950238289
-          order: 2
-          percentage: 5
-        - id: 954674010204016641
-          order: 3
-          percentage: 5
-

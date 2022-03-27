@@ -3,19 +3,15 @@ package dev.vrba.activityawardsbot.services
 import dev.vrba.activityawardsbot.entities.MemberActivity
 import dev.vrba.activityawardsbot.repositories.GuildConfigurationRepository
 import dev.vrba.activityawardsbot.repositories.MemberActivityRepository
-import net.dv8tion.jda.api.events.message.MessageReceivedEvent
-import net.dv8tion.jda.api.hooks.ListenerAdapter
 import org.springframework.data.domain.Sort
-import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 import java.time.LocalDate
 
 @Service
-class ActivityCollectionService(
+class MemberActivityService(
     private val guildsRepository: GuildConfigurationRepository,
     private val activityRepository: MemberActivityRepository
-) : ListenerAdapter() {
-
+) {
     // Mapped member id -> activity
     fun getMostActiveMembers(guild: Long): List<Long> {
         val start = LocalDate.now().minusDays(7)
@@ -26,11 +22,8 @@ class ActivityCollectionService(
             .map { it.member }
     }
 
-    override fun onMessageReceived(event: MessageReceivedEvent) {
-        val guild = event.guild.idLong
-        val member = event.author.idLong
-        val date = LocalDate.now()
-
+    fun incrementMessagesCount(guild: Long, member: Long, date: LocalDate = LocalDate.now()) {
+        // Only collect activity in guilds with valid configuration
         if (!guildsRepository.existsById(guild)) {
             return
         }

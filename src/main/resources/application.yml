@@ -2,6 +2,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+    show-sql: true
 
   datasource:
     username: ${DATABASE_USERNAME:activity}
@@ -11,12 +12,4 @@ spring:
 discord:
   token: ${DISCORD_TOKEN:Obtain a valid bot token at https://discord.com/developers/applications}
   development-guild-id: 932728712355512331
-
----
-spring:
-  profiles:
-    active:
-      - development
-  jpa:
-    show-sql: true
 

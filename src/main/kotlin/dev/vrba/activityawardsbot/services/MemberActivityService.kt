@@ -24,7 +24,7 @@ class MemberActivityService(
 
     fun incrementMessagesCount(guild: Long, member: Long, date: LocalDate = LocalDate.now()) {
         // Only collect activity in guilds with valid configuration
-        if (!guildsRepository.existsById(guild)) {
+        if (!guildsRepository.existsByGuildId(guild)) {
             return
         }
 

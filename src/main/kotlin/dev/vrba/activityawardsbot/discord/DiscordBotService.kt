@@ -2,7 +2,6 @@ package dev.vrba.activityawardsbot.discord
 
 import net.dv8tion.jda.api.JDA
 import net.dv8tion.jda.api.entities.Activity
-import net.dv8tion.jda.api.hooks.EventListener
 import org.springframework.boot.CommandLineRunner
 import org.springframework.stereotype.Service
 

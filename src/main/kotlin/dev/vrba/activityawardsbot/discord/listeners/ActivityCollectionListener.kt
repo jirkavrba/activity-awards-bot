@@ -10,6 +10,11 @@ import java.time.LocalDate
 class ActivityCollectionListener(private val service: MemberActivityService) : ListenerAdapter() {
 
     override fun onMessageReceived(event: MessageReceivedEvent) {
+        // :(
+        if (event.author.isBot || event.author.isSystem) {
+            return
+        }
+
         val guild = event.guild.idLong
         val member = event.author.idLong
         val date = LocalDate.now()

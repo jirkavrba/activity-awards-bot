@@ -34,7 +34,7 @@ class SetupCommand(private val repository: GuildConfigurationRepository) : Slash
     private fun setupCompleteEmbed(announcementsChannelId: Long): MessageEmbed =
         EmbedBuilder()
             .setColor(0x57F287)
-            .setTitle("Setup complete \uD83D\uDC4C")
+            .setTitle("The bot is now collecting activity in this guild")
             .setDescription("I will post updates to <#${announcementsChannelId}>")
             .build()
 }

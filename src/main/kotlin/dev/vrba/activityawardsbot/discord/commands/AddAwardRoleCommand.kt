@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component
 @Component
 class AddAwardRoleCommand(private val repository: AwardRoleRepository) : SlashCommand {
 
-    override val definition: SlashCommandData = Commands.slash("add-award-role", "Add a new award role binding")
+    override val definition: SlashCommandData = Commands.slash("add", "Add a new award role binding")
         .addOption(OptionType.ROLE, "role", "Role that should be awarded to the selected % of most active users", true)
         .addOption(OptionType.INTEGER, "percentage", "Number of % that this role should be awarded to", true)
 

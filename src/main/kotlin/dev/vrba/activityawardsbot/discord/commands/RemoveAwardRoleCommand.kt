@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component
 @Component
 class RemoveAwardRoleCommand(private val repository: AwardRoleRepository) : SlashCommand {
 
-    override val definition: SlashCommandData = Commands.slash("remove-award-role", "Remove award role bindings for the selected role")
+    override val definition: SlashCommandData = Commands.slash("remove", "Remove award role bindings for the selected role")
         .addOption(OptionType.ROLE, "role", "Role that should be awarded to the selected % of most active users", true)
 
     override fun execute(event: SlashCommandInteractionEvent) {

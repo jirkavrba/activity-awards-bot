@@ -6,9 +6,10 @@ import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEve
 import net.dv8tion.jda.api.interactions.commands.build.Commands
 import net.dv8tion.jda.api.interactions.commands.build.SlashCommandData
 import org.springframework.stereotype.Component
+import org.springframework.context.annotation.Lazy as SpringLazy
 
 @Component
-class AwardRolesCommand(private val task: RoleAwardingTask) : SlashCommand {
+class AwardRolesCommand @SpringLazy constructor(private val task: RoleAwardingTask) : SlashCommand {
 
     override val definition: SlashCommandData = Commands.slash("award", "Manually trigger the role awarding task")
 

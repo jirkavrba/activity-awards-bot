@@ -23,7 +23,6 @@ class RoleAwardingTask(
     private val service: MemberActivityService,
     private val client: JDA
 ) {
-
     private val logger = LoggerFactory.getLogger(this::class.qualifiedName)
 
     @Scheduled(cron = "0 0 0 * * *")

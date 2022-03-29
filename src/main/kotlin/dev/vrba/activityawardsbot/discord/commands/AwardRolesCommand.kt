@@ -25,11 +25,10 @@ class AwardRolesCommand @SpringLazy constructor(
         scheduler.schedule({ task.updateAwardRoles() }, Instant.now() + Duration.ofSeconds(5))
 
         val embed = EmbedBuilder()
-                    .setColor(0x57F287)
-                    .setTitle("Role awarding task was executed")
-                    .build()
+                .setColor(0x57F287)
+                .setTitle("Role awarding task was executed")
+                .build()
 
-            interaction.editOriginalEmbeds(embed).queue()
-        }
+        interaction.editOriginalEmbeds(embed).queue()
     }
 }
